@@ -8,12 +8,12 @@ class StudentProvider {
                     "Akello Stellamaris",
                     "24/2/314/01",
                     "BIT",
-                    R.drawable.female_1,
+                    R.drawable.student_female_3,
                     true
                 ),
-                Student(2, "Kirya James", "24/2/314/02", "BCS", R.drawable.male_1, false),
-                Student(3, "Mbabazi Joan", "24/2/314/03", "BIT", R.drawable.female_3, true),
-                Student(4, "Kato Johnmary", "24/2/314/04", "BSE", R.drawable.male_2, isVerified = false)
+                Student(2, "Kirya James", "24/2/314/02", "BCS", R.drawable.student_male_1, false),
+                Student(3, "Mbabazi Joan", "24/2/314/03", "BIT", R.drawable.student_female_4, true),
+                Student(4, "Kato Johnmary", "24/2/314/04", "BSE", R.drawable.student_male_2, isVerified = false)
             )
         }
 }
