@@ -81,7 +81,8 @@ fun StudentIdCard(student: Student) {
     ) {
         Column(modifier= Modifier.padding(16.dp).fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             StudentInfo(student)
-            Button(onClick= {/*Insert text*/} ) {Text("View Profile")}
+            Button(onClick= {/*Insert text*/} ) {
+                Text("View Profile")}
 
 
             }
@@ -103,7 +104,8 @@ fun StudentDirectory(){
     }
 }
 
-@Preview(showBackground = true)
+@Preview(showBackground = true,
+showSystemUi = true)
 @Composable
 fun WelcomePreview() {
     NdejjeWelcomeAppTheme() {
