@@ -16,11 +16,15 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Icon
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -32,6 +36,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import ug.ac.ndejje.welcome.ui.theme.NdejjeWelcomeAppTheme
@@ -100,6 +105,28 @@ fun StudentDirectory(){
 
     val filteredStudents = StudentProvider.studentList.filter{
         it.name.contains(searchQuery, ignoreCase = true)
+    }
+
+    Column(modifier = Modifier.fillMaxSize()){
+        TextField(
+            value = searchQuery,
+            onValueChange = { searchQuery = it},
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            placeholder = { Text(stringResource(R.string.search_placeholder))},
+            leadingIcon= {
+                Icon (Icons.Default.Search, contentDescription= "Search Icon")
+            }
+        )
+
+        LazyColumn(contentPadding = PaddingValues(16.dp)){
+            items(filteredStudents) { student ->
+                StudentIdCard(student = student)
+                Spacer(modifier = Modifier.height(12.dp))
+
+            }
+        }
     }
 
 

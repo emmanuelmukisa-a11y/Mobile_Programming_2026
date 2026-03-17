@@ -3,4 +3,5 @@
     <string name="student_name">Thiago Alcantara</string>
     <string name="programme">Bachelor of Computer Science</string>
     <string name="reg_number">24/1/306/D/265</string>
+    <string name="search_placeholder">Search student name...</string>
 </resources>
