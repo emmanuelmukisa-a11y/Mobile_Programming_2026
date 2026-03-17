@@ -22,6 +22,10 @@ import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -91,7 +95,16 @@ fun StudentIdCard(student: Student) {
 
 @Composable
 fun StudentDirectory(){
-    val students = StudentProvider.studentList
+
+    var searchQuery by remember {mutableStateOf("")}
+
+    val filteredStudents = StudentProvider.studentList.filter{
+        it.name.contains(searchQuery, ignoreCase = true)
+    }
+
+
+
+    /*val students = StudentProvider.studentList
     LazyColumn(
         modifier= Modifier.fillMaxSize(),
         contentPadding = PaddingValues(16.dp)
@@ -102,6 +115,7 @@ fun StudentDirectory(){
             Spacer(modifier= Modifier.height(12.dp))
         }
     }
+   */
 }
 
 @Preview(showBackground = true,
