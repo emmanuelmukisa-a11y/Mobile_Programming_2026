@@ -79,6 +79,10 @@ fun StudentInfo(student: Student) {
 }
 @Composable
 fun StudentIdCard(student: Student) {
+
+    var isPresent by remember { mutableStateOf(false) }
+
+    val borderColor = if (isPresent) Color.Green else Color.Transparent
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
