@@ -103,8 +103,9 @@ fun StudentIdCard(student: Student) {
                 colors= ButtonDefaults.buttonColors(
                     containerColor= if(isPresent) Color.Gray
                     else MaterialTheme.colorScheme.primary
-                )) {
-                Text("View Profile")}
+                )
+            ) {
+                Text(if (isPresent) "Present" else "Mark Present")}
 
 
             }
