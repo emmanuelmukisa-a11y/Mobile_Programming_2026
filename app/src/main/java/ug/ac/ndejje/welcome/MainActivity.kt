@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
@@ -20,6 +21,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
@@ -83,10 +85,12 @@ fun StudentIdCard(student: Student) {
     var isPresent by remember { mutableStateOf(false) }
 
     val borderColor = if (isPresent) Color.Green else Color.Transparent
+
     ElevatedCard(
         modifier = Modifier
             .fillMaxWidth()
-            .padding(16.dp),
+            .padding(16.dp)
+            .border(2.dp, borderColor, RoundedCornerShape(16.dp)),
         shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.elevatedCardColors(
             containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f)
@@ -94,7 +98,12 @@ fun StudentIdCard(student: Student) {
     ) {
         Column(modifier= Modifier.padding(16.dp).fillMaxWidth(), horizontalAlignment = Alignment.CenterHorizontally) {
             StudentInfo(student)
-            Button(onClick= {/*Insert text*/} ) {
+            Button(
+                onClick= {isPresent =!isPresent},
+                colors= ButtonDefaults.buttonColors(
+                    containerColor= if(isPresent) Color.Gray
+                    else MaterialTheme.colorScheme.primary
+                )) {
                 Text("View Profile")}
 
 
